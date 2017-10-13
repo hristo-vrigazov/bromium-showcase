@@ -5,8 +5,8 @@ An app used to show and compare Bromium and Selenium, as well as give people a q
 
 ## Dynamic creation of an element demo
 
-<button onclick="demoCreate()" id='create-dynamic'>Dynamically create element in 2 seconds</button>
-<button onclick="destroyDynamic()" id="destroy-dynamic">Destroy the dynamically created node</button>
+<button onclick="demoCreate()" id='create-dynamic'>Create element in 2 seconds</button>
+<button onclick="destroyDynamic()" id="destroy-dynamic">Destroy element</button>
 
 <script>
 	function demoCreate() {
@@ -16,7 +16,7 @@ An app used to show and compare Bromium and Selenium, as well as give people a q
 				elemDiv.addEventListener('click', function() { this.innerHTML = 'I was clicked'});
 				elemDiv.innerHTML = 'I was created 2 seconds after the button was clicked';
 				elemDiv.id = 'late-creation';
-				document.body.appendChild(elemDiv);
+				this.parent.appendChild(elemDiv);
 			}, 2000);
 	}
 	function destroyDynamic() {

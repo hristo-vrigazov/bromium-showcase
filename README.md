@@ -10,13 +10,14 @@ An app used to show and compare Bromium and Selenium, as well as give people a q
 
 <script>
 	function demoCreate() {
+		var parent = this.parentNode;
 		setTimeout(
 			function() { 
 				var elemDiv = document.createElement('button');
 				elemDiv.addEventListener('click', function() { this.innerHTML = 'I was clicked'});
 				elemDiv.innerHTML = 'I was created 2 seconds after the button was clicked';
 				elemDiv.id = 'late-creation';
-				this.parentNode.appendChild(elemDiv);
+				parent.appendChild(elemDiv);
 			}, 2000);
 	}
 	function destroyDynamic() {

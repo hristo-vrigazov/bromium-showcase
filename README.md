@@ -16,7 +16,7 @@ An app used to show and compare Bromium and Selenium, as well as give people a q
 				elemDiv.addEventListener('click', function() { this.innerHTML = 'I was clicked'});
 				elemDiv.innerHTML = 'I was created 2 seconds after the button was clicked';
 				elemDiv.id = 'late-creation';
-				this.parent.appendChild(elemDiv);
+				this.parentNode.appendChild(elemDiv);
 			}, 2000);
 	}
 	function destroyDynamic() {

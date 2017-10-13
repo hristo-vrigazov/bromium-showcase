@@ -2,34 +2,25 @@
 
 An app used to show and compare Bromium and Selenium, as well as give people a quickstart.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Dynamic creation of an element demo
 
-```markdown
-Syntax highlighted code block
+<button onclick="demoCreate()" id='create-dynamic'>Dynamically create element in 2 seconds</button>
+	<button onclick="destroyDynamic()" id="destroy-dynamic">Destroy the dynamically created node</button>
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hristo-vrigazov/bromium-showcase/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+	<script>
+		function demoCreate() {
+			setTimeout(
+				function() { 
+					var elemDiv = document.createElement('button');
+					elemDiv.addEventListener('click', function() { this.innerHTML = 'I was clicked'});
+					elemDiv.innerHTML = 'I was created 2 seconds after the button was clicked';
+					elemDiv.id = 'late-creation';
+					document.body.appendChild(elemDiv);
+				}, 2000);
+		}
+		function destroyDynamic() {
+			var elem = document.getElementById('late-creation');
+			elem.parentNode.removeChild(elem);
+		}
+	</script>
